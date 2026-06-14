@@ -1,0 +1,789 @@
+/* ================================================================
+   IFA MOBILE OPTIMIZED — Full Mobile Responsiveness
+   Covers: 1200px > 992px > 768px > 600px > 480px > 360px
+   ================================================================ */
+
+/* ── Reset box-sizing globally for mobile safety ─────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ── Prevent horizontal scroll on mobile ─────────────────────── */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ── Prevent sticky elements from breaking mobile scroll ──────── */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 1100px — Tablets (landscape)
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+
+    /* Hero */
+    .twc-hero-inner {
+        gap: 2rem;
+        padding-top: 6rem;
+    }
+
+    /* Formula */
+    .formula-cards { grid-template-columns: repeat(2, 1fr); }
+    .trainers-strip { grid-template-columns: 1fr 1fr; }
+
+    /* Transform */
+    .transform-grid { grid-template-columns: 1fr; }
+    .transform-sim  { position: static; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 992px — Tablets
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 992px) {
+
+    /* Section padding */
+    .section-padding { padding: 5rem 1.5rem; }
+
+    /* BMI grid */
+    .bmi-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .bmi-image { height: 300px; }
+
+    /* Contact grid */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 768px — Mobile (main breakpoint)
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* ─── 1. NAVBAR ────────────────────────────────────────── */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(0,0,0,0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+
+    .mobile-toggle {
+        display: block !important;
+        position: relative;
+        z-index: 1001;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: var(--text-light);
+        border: none;
+        background: none;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 2, 12, 0.98);
+        border-bottom: 1px solid var(--glass-border);
+        border-top: 1px solid var(--glass-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 999;
+        transition: max-height 0.45s ease, padding 0.45s ease;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    }
+
+    .nav-menu.active {
+        max-height: 600px;
+        padding: 2rem 0;
+    }
+
+    .nav-links {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        background: none !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
+        border-left: none !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+        display: flex !important;
+        transition: none !important;
+        padding: 0 !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-links li:last-child { border-bottom: none; }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 2rem !important;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    .header-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 1rem 2rem !important;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 0.5rem;
+    }
+
+    .header-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* Logo scaling for mobile */
+    .logo img {
+        height: 32px !important;
+        width: auto !important;
+    }
+    .logo {
+        font-size: 1.3rem !important;
+        gap: 0.5rem !important;
+    }
+
+    /* ─── 2. HERO SECTION ──────────────────────────────────── */
+    .twc-hero-inner {
+        grid-template-columns: 1fr !important;
+        padding-top: 6.5rem !important;
+        padding-bottom: 2rem !important;
+        gap: 2rem !important;
+        text-align: center;
+    }
+
+    .twc-hero-text {
+        text-align: center !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        order: 1;
+    }
+
+    .twc-hero-stats {
+        order: 2;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 0.8rem !important;
+        justify-content: center !important;
+    }
+
+    .hero-stat-card {
+        flex: 1 1 calc(50% - 0.8rem) !important;
+        min-width: 130px !important;
+        padding: 1rem 1.2rem !important;
+        text-align: center !important;
+    }
+
+    .hero-stat-card h3 {
+        font-size: 2rem !important;
+    }
+
+    .hero-bg-image {
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+
+    .offer-timer-banner {
+        margin: 0 auto 1.2rem !important;
+        font-size: 0.8rem !important;
+        padding: 0.5rem 1rem !important;
+        text-align: center !important;
+    }
+
+    .goal-switcher {
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin: 1.2rem auto !important;
+        width: 100% !important;
+    }
+
+    .goal-btn {
+        padding: 0.5rem 1.2rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .hero-eyebrow {
+        text-align: center !important;
+        font-size: 0.72rem !important;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 3.5rem) !important;
+        text-align: center !important;
+        line-height: 1 !important;
+        letter-spacing: -2px !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .typed-text { display: block; }
+
+    .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 1.8rem !important;
+        font-size: 0.95rem !important;
+        max-width: 90% !important;
+    }
+
+    .hero-btns {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+
+    .hero-btns .btn,
+    .hero-btns .play-video-btn {
+        width: 100% !important;
+        max-width: 360px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .hero-pillars {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        margin-top: 2rem !important;
+        width: 100% !important;
+    }
+
+    .pillar-item {
+        background: rgba(232,0,28,.06) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 10px !important;
+        padding: 0.8rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* ─── 3. HERO TAPE (Marquee) ───────────────────────────── */
+    .tape-track {
+        font-size: 0.75rem !important;
+    }
+
+    /* ─── 4. PROGRAMS SECTION ──────────────────────────────── */
+    .program-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .program-card { height: auto !important; }
+    .program-img  { height: auto !important; }
+
+    .program-img img {
+        aspect-ratio: 16/9 !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ─── 5. FORMULA SECTION ───────────────────────────────── */
+    .formula-equation {
+        gap: 0.5rem !important;
+        padding: 1.2rem 0.8rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .formula-node { min-width: 60px; }
+    .fn-icon { width: 46px !important; height: 46px !important; font-size: 1.2rem !important; }
+    .fn-plus { font-size: 1.3rem !important; }
+
+    .formula-cards {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .formula-quote span {
+        font-size: 0.9rem !important;
+    }
+
+    /* ─── 6. TRAINERS STRIP ────────────────────────────────── */
+    .trainers-strip {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .tsc-img { height: 220px !important; }
+
+    /* ─── 7. TRANSFORMATION HUB ────────────────────────────── */
+    .transform-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .transform-sim { position: static !important; }
+
+    .ba-wrapper { height: 240px !important; }
+
+    .ba-slider-btn {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        font-size: 1.2rem !important;
+    }
+
+    /* ─── 8. TESTIMONIALS ──────────────────────────────────── */
+    .testimonial-content {
+        padding: 2rem 1.5rem !important;
+        border-radius: 16px !important;
+    }
+
+    .testi-avatar {
+        width: 64px !important;
+        height: 64px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        margin: 0 auto 1rem !important;
+        display: block !important;
+    }
+
+    .testimonial-content,
+    .testi-slide {
+        text-align: center !important;
+    }
+
+    .testi-quote {
+        font-size: 0.9rem !important;
+    }
+
+    .testi-user {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .testi-user-info { text-align: center !important; }
+
+    /* ─── 9. BMI CALCULATOR ────────────────────────────────── */
+    .bmi-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .bmi-image {
+        height: 220px !important;
+        order: -1;
+    }
+
+    .bmi-form-wrapper {
+        padding: 1.5rem !important;
+    }
+
+    #bmi-form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    #bmi-form .form-group {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+
+    .form-control,
+    #bmi-form input,
+    #bmi-form select,
+    textarea {
+        font-size: 16px !important; /* prevent iOS zoom */
+        width: 100% !important;
+    }
+
+    #bmi-form button[type="submit"] {
+        width: 100% !important;
+        display: block !important;
+        padding: 1rem !important;
+    }
+
+    /* ─── 10. PRICING SECTION ──────────────────────────────── */
+    .pricing-grid,
+    .pricing-grid-v2 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .pricing-card,
+    .pricing-card-v2 {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+
+    .price-val,
+    .price-val-v2 {
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    }
+
+    .pricing-switcher {
+        flex-wrap: wrap !important;
+        gap: 1rem !important;
+    }
+
+    .rec-cta {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+
+    .rec-cta-text {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .rec-cta .btn {
+        width: 100% !important;
+    }
+
+    .pricing-footer div {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+    }
+
+    /* ─── 11. PARALLAX SECTION ─────────────────────────────── */
+    .parallax-section { min-height: 320px !important; }
+
+    .parallax-content {
+        padding: 4rem 1.5rem !important;
+    }
+
+    .parallax-title {
+        font-size: clamp(1.5rem, 7vw, 2.5rem) !important;
+    }
+
+    .parallax-stats {
+        gap: 2rem !important;
+    }
+
+    /* ─── 12. FOOTER ────────────────────────────────────────── */
+    footer { padding: 3rem 0 0 !important; }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .footer-logo {
+        font-size: 1.2rem !important;
+    }
+
+    .social-links { gap: 0.6rem !important; }
+
+    .newsletter-form {
+        flex-direction: column !important;
+    }
+
+    .newsletter-form button {
+        width: 100% !important;
+        height: 46px !important;
+    }
+
+    /* ─── 13. SECTION PADDING ──────────────────────────────── */
+    section,
+    .section-padding {
+        padding: 4rem 1.2rem !important;
+    }
+
+    /* ─── 14. GLOBAL IMAGES ─────────────────────────────────── */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .program-img img,
+    .ba-image,
+    .trainer-img,
+    .testi-avatar {
+        object-fit: cover !important;
+    }
+
+    /* ─── 15. CONTACT GRID ──────────────────────────────────── */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Contact form two-column grid → single column */
+    .contact-grid form > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ─── 16. RE-ENGAGE POPUP ──────────────────────────────── */
+    .re-engage {
+        width: calc(100% - 2rem) !important;
+        left: 1rem !important;
+        bottom: 1rem !important;
+        right: 1rem !important;
+    }
+
+    /* ─── 17. FLOATING BUTTON ─────────────────────────────── */
+    .floating-whatsapp {
+        bottom: 1.5rem !important;
+        right: 1.5rem !important;
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 1.4rem !important;
+    }
+
+    /* ─── 18. ABOUT PAGE — FACILITY GRID ─────────────────── */
+    .about .pricing-grid,
+    section > .container > .pricing-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ─── 19. SECTION TITLE SIZING ───────────────────────── */
+    .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem) !important;
+    }
+
+    /* ─── 20. FEATURES GRID ───────────────────────────────── */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 600px — Small Phones
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+    /* Hero */
+    .hero-title {
+        font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+        letter-spacing: -1.5px !important;
+    }
+
+    .twc-hero-stats {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .hero-stat-card {
+        width: 100% !important;
+        flex: none !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        padding: 0.9rem 1.2rem !important;
+    }
+
+    .hero-stat-card h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    .hero-stat-card p { margin: 0 !important; }
+
+    /* Formula */
+    .formula-cards {
+        grid-template-columns: 1fr !important;
+    }
+
+    .formula-equation {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+    }
+
+    .fn-plus { transform: rotate(90deg); }
+
+    /* Pillars */
+    .hero-pillars {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* Before/After */
+    .ba-wrapper { height: 200px !important; }
+    .transform-sliders { gap: 1rem !important; }
+
+    /* Trainers page */
+    .trainer-card { margin: 0 !important; }
+    .trainer-img-wrap { height: 280px !important; }
+
+    /* Section padding tighter */
+    section,
+    .section-padding {
+        padding: 3rem 1rem !important;
+    }
+
+    /* Footer columns full width */
+    .footer-grid { gap: 1.8rem !important; }
+
+    /* Testimonial */
+    .testimonial-content { padding: 1.5rem 1rem !important; }
+
+    /* Pricing card padding */
+    .pricing-card-v2 { padding: 1.5rem !important; }
+
+    /* Contact form two column */
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 480px — Compact Phones
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+    /* Flash sale banner */
+    .offer-timer-banner,
+    .offer-timer-banner p {
+        font-size: 0.7rem !important;
+        padding: 0.4rem 0.8rem !important;
+        gap: 0.3rem !important;
+    }
+
+    /* Hero text */
+    .hero-title {
+        font-size: clamp(1.7rem, 8.5vw, 2.5rem) !important;
+    }
+
+    .hero-desc { font-size: 0.88rem !important; }
+
+    /* Pillar single column */
+    .hero-pillars {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.7rem !important;
+    }
+
+    .pillar-item {
+        font-size: 0.65rem !important;
+        padding: 0.7rem 0.5rem !important;
+    }
+
+    .pillar-item i {
+        font-size: 1.4rem !important;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: clamp(1.4rem, 6vw, 2rem) !important;
+    }
+
+    /* Loader logo */
+    .loader-logo {
+        font-size: 3rem !important;
+    }
+
+    /* BMI score */
+    .bmi-score {
+        font-size: 3.5rem !important;
+    }
+
+    /* Pricing */
+    .price-val,
+    .price-val-v2 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+    }
+
+    /* Goal buttons */
+    .goal-btn {
+        padding: 0.4rem 0.9rem !important;
+        font-size: 0.78rem !important;
+    }
+
+    /* Nav logo smaller */
+    .logo {
+        font-size: 1.1rem !important;
+        gap: 0.4rem !important;
+    }
+
+    .logo img { height: 28px !important; }
+
+    /* Tab target sizes — touch minimum */
+    .btn,
+    .play-video-btn,
+    .goal-btn,
+    .nav-links a,
+    .faq-question,
+    .mobile-toggle {
+        min-height: 44px !important;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BREAKPOINT: 360px — Very Small Phones
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+
+    .hero-title {
+        font-size: clamp(1.5rem, 9vw, 2.2rem) !important;
+    }
+
+    section,
+    .section-padding {
+        padding: 2.5rem 0.9rem !important;
+    }
+
+    .twc-hero-inner {
+        padding-top: 5.5rem !important;
+        padding-left: 0.9rem !important;
+        padding-right: 0.9rem !important;
+    }
+
+    .container {
+        padding-left: 0.9rem !important;
+        padding-right: 0.9rem !important;
+    }
+
+    .logo { font-size: 1rem !important; }
+    .logo img { height: 24px !important; }
+
+    .hero-pillars { grid-template-columns: 1fr 1fr !important; }
+    .formula-cards { grid-template-columns: 1fr !important; }
+
+    /* Footer really tight */
+    footer { padding: 2rem 0 0 !important; }
+}
